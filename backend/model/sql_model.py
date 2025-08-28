@@ -1,4 +1,5 @@
-from sqlmodel import SQLModel, Field
+from sqlmodel import Field, SQLModel
+
 
 class Pokemon(SQLModel, table=True):
     number: int = Field(primary_key=True)
@@ -7,6 +8,7 @@ class Pokemon(SQLModel, table=True):
     height: int
     weight: int
     image: str
+
 
 class PokemonType(SQLModel, table=True):
     pokemon_number: int = Field(foreign_key="pokemon.number", primary_key=True)
@@ -18,6 +20,7 @@ class PokemonStat(SQLModel, table=True):
     name: str = Field(primary_key=True)
     value: int
 
+
 class PokemonMove(SQLModel, table=True):
     pokemon_number: int = Field(foreign_key="pokemon.number", primary_key=True)
     pokemon_move: str = Field(primary_key=True)
@@ -26,6 +29,7 @@ class PokemonMove(SQLModel, table=True):
 class PokemonAbility(SQLModel, table=True):
     pokemon_number: int = Field(foreign_key="pokemon.number", primary_key=True)
     pokemon_ability: str = Field(primary_key=True)
+
 
 class PokemonEvolution(SQLModel, table=True):
     from_name: str = Field(primary_key=True)
