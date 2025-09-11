@@ -36,12 +36,25 @@ class PokemonQueryParams(BaseModel):
     generation: Optional[str] = Field(None, description="Dropdown filter by generation")
 
     sort_by: Optional[
-        Literal["number", "name", "generation", "height", "weight", "type_one", "type_two", "moves_count"]
+        Literal["number", "name", "generation", "height", "weight", "moves_count"]
     ] = "number"
     sort_order: Optional[Literal["asc", "desc"]] = "asc" # ograniczna co mozna wpisac w to pole LITERAL 
 
     model_config = ConfigDict(populate_by_name=True)
 
+
+'''
+class PokemonTable(BaseModel):
+    number: int
+    name: str
+    generation: str
+    height: int
+    weight: int
+    image: str
+    type_one: str          # wymagane
+    type_two: str | None   # bywa brak
+    moves_count: int       # wymagane
+'''
 
 class PokemonTable(BaseModel):
     number: int

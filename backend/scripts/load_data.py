@@ -78,15 +78,13 @@ def load_data():
                     seen_abilities.add(key)
 
             evo: dict[str, Any] = p.get("evolution", {})
-            from_name = evo.get("from")
-
             to_values = cast(list[str], evo.get("to") or [])
 
+            # WŁAŚCIWE: dla KAŻDEGO to_name dodaj krawędź: current_name -> to_name
             for to_name in to_values:
-                if isinstance(from_name, str):
-                    session.add(
-                        PokemonEvolution(from_name=from_name.lower(), to_name=to_name.lower())
-                    )
+                session.add(
+                    PokemonEvolution(from_name=name, to_name=to_name.lower())
+                )
 
         session.commit()
 

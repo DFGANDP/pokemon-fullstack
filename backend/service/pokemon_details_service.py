@@ -52,7 +52,7 @@ class PokemonDetailsService:
             # Evolution
             from_result = session.exec(
                 select(PokemonEvolution.from_name).where(PokemonEvolution.to_name == pokemon.name)
-            ).first()
+            ).all()
 
             to_result = session.exec(
                 select(PokemonEvolution.to_name).where(PokemonEvolution.from_name == pokemon.name)
