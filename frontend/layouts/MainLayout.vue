@@ -18,10 +18,20 @@
 
 <style scoped>
 header {
-  position: sticky; top: 0;
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid var(--line);
-  background: var(--bg); z-index: 10;
+  background: var(--bg);
+  z-index: 10;
 }
-.nav { display: flex; gap: 16px; padding: 12px 0; }
-main { padding: 32px 0; }
+
+.nav {
+  display: flex;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+main {
+  padding: 32px 0;
+}
 </style>

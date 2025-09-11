@@ -14,5 +14,6 @@ export default {
   // opcjonalnie własne reguły
   rules: {
     // 'scss/at-rule-no-unknown': true,
+    'selector-class-pattern': '^[a-z0-9]+(?:[-_]{1,2}[a-z0-9]+)*$',
   },
-};
+}

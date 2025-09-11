@@ -1,18 +1,47 @@
-:root{
-  --bg:#0f1115; --fg:#eaeef3; --muted:#9aa4b2; --line:#2a2f3a;
+:root {
+  --bg: #0f1115;
+  --fg: #eaeef3;
+  --muted: #9aa4b2;
+  --line: #2a2f3a;
 }
-*{ box-sizing:border-box; }
-html,body,#app{ height:100%; }
-body{ margin:0; background:var(--bg); color:var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-a{ color:#6ea8fe; text-decoration:none; }
-a.router-link-active{ font-weight:600; }
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+a {
+  color: #6ea8fe;
+  text-decoration: none;
+}
+
+a.router-link-active {
+  font-weight: 600;
+}
 
 /* styles.css (global) */
 .container--fluid {
-  max-width: none;      /* zdejmij ograniczenie szerokości */
+  max-width: none; /* zdejmij ograniczenie szerokości */
   padding-left: 0;
-  padding-right: 0;     /* zero bocznego paddingu na kontenerze */
+  padding-right: 0; /* zero bocznego paddingu na kontenerze */
 }
 
 /* opcjonalnie, żeby nie kleić się do krawędzi monitora */

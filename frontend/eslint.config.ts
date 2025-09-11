@@ -1,34 +1,24 @@
-// eslint.config.ts
-import { defineConfig } from 'eslint/config'
-import eslint from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
+import js from '@eslint/js'
+import globals from 'globals'
 import tseslint from 'typescript-eslint'
-import eslintConfigPrettier from 'eslint-config-prettier/flat'
+import pluginVue from 'eslint-plugin-vue'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import { defineConfig } from 'eslint/config'
 
 export default defineConfig([
-  { ignores: ['dist/**', 'node_modules/**'] },
-
-  eslint.configs.recommended,
-  ...pluginVue.configs['flat/recommended'],
-  ...tseslint.configs.recommended,
-
-  // ⬇️ JEDYNA potrzebna zmiana: użyj parserOptions.parser (NIE languageOptions.parser)
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,vue}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.browser },
+  },
+  tseslint.configs.recommended,
+  pluginVue.configs['flat/essential'],
+  eslintConfigPrettier, // 👈 to musi być ostatnie
   {
     files: ['**/*.vue'],
     languageOptions: {
-      parserOptions: {
-        // ważne: tu wskazujemy parser TS, a parserem głównym dla .vue
-        // nadal jest vue-eslint-parser z presetów pluginVue
-        parser: tseslint.parser,
-        ecmaVersion: 2024,
-        sourceType: 'module',
-      },
-    },
-    rules: {
-      'vue/multi-word-component-names': 'off',
+      parserOptions: { parser: tseslint.parser },
     },
   },
-
-  // na końcu wyciszamy konflikty z Prettier
-  eslintConfigPrettier,
 ])
