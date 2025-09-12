@@ -88,6 +88,8 @@ import { getPokemonTable, type PokemonRow } from '@/api'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 
+import type { DataTableSortEvent } from 'primevue/datatable'
+
 const rows = ref<PokemonRow[]>([])
 const loading = ref(true)
 const error = ref<string | null>(null)
@@ -183,7 +185,6 @@ function triggerReloadDebounced() {
   offset.value = 0
   // debounce: czekamy 300 ms od ostatniego wpisu
   clearTimeout(debounceTimer)
-  // @ts-expect-error: w DOM typ timera to number
   debounceTimer = setTimeout(() => {
     loadData()
   }, 300)
@@ -204,14 +205,18 @@ watch([fGeneration, fType], () => {
   loadData()
 })
 
-function onSort(e: { sortField?: string; sortOrder?: 1 | -1 }) {
-  if (e.sortField) {
-    // pole z atrybutu `field` w Column (np. 'height', 'name' itd.)
-    sortBy.value = e.sortField as typeof sortBy.value
+function onSort(e: DataTableSortEvent) {
+  const field =
+    typeof e.sortField === 'function' ? undefined : e.sortField
+
+  if (field) {
+    // zawęź do dozwolonych kluczy
+    sortBy.value = field as typeof sortBy.value
   }
+
   if (e.sortOrder === 1) sortOrder.value = 'asc'
   else if (e.sortOrder === -1) sortOrder.value = 'desc'
-  // po zmianie sortowania wracamy na początek
+
   offset.value = 0
   loadData()
 }

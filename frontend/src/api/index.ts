@@ -45,12 +45,15 @@ export interface PokemonQuery {
 }
 
 // Helper do budowania query string – ignoruje puste/undefined/null
-function toQuery(params: Record<string, unknown> = {}): string {
+function toQuery(params: Partial<PokemonQuery> = {}): string {
   const search = new URLSearchParams()
-  for (const [k, v] of Object.entries(params)) {
+
+  // doprecyzowanie krotek, żeby TS wiedział co iterujemy
+  for (const [k, v] of Object.entries(params) as [keyof PokemonQuery, unknown][]) {
     if (v === undefined || v === null || v === '') continue
-    search.append(k, String(v))
+    search.append(String(k), String(v))
   }
+
   const s = search.toString()
   return s ? `?${s}` : ''
 }
