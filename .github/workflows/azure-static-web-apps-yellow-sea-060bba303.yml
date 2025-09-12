@@ -14,7 +14,7 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     env:
-      NODE_VERSION: '22.12.0'   # podpowiedź dla Oryx
+      NODE_VERSION: '22.17.0'   # podpowiedź dla Oryx
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v3
@@ -46,4 +46,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_SEA_060BBA303 }}
           action: "close"
+
 
