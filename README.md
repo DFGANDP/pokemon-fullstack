@@ -47,7 +47,7 @@ npm install
 
 #### Azure
 
-![azure-resource](img/azure.png)
+![azure-resource](img/azure2.png)
 
 #### Website
 
