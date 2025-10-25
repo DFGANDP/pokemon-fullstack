@@ -12,7 +12,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': { target: 'http://localhost:8000', changeOrigin: true },
+      '/api': { target: 'https://pokemon-backend-api-gkghfqc8h4f4aua6.polandcentral-01.azurewebsites.net', changeOrigin: true },
     },
   },
 })
