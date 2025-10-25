@@ -47,11 +47,11 @@ npm install
 
 #### Azure
 
-![azure-resource](img\azure.png)
+![azure-resource](img/azure.png)
 
 #### Website
 
-![azure-resource](img\website.png)
+![azure-resource](img/website.png)
 
 ### Local Development
 
