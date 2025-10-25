@@ -12,7 +12,6 @@ SQLModel.metadata.create_all(engine)
 
 app = FastAPI(title="Pokemon API", description="Easy backend for pokemon review", version="1.0.0")
 
-# Produkcyjnie: wpisz konkretne originy (bez trailing slash)
 ALLOWED_ORIGINS = [
     "https://yellow-sea-060bba303.1.azurestaticapps.net",
     # ewentualnie lokalny dev:

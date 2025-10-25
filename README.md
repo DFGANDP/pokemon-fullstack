@@ -2,10 +2,16 @@
 
 A simple project for browsing Pokémon data: backend in Python (FastAPI + SQLModel + SQLite) and frontend in Vue 3 (Vite + TypeScript + PrimeVue). The backend provides an API with list, details, and summary endpoints, while the frontend displays the data in a clear form.
 
+## Live Demo
+
+The application is deployed on Azure Static Web Apps and can be accessed at:
+
+**🌐 [https://yellow-sea-060bba303.1.azurestaticapps.net/](https://yellow-sea-060bba303.1.azurestaticapps.net/)**
+
 ## Overview
 
-* Backend (`backend/`): FastAPI with three routers: `summary`, `pokemon`, and `details`. SQLite database, initialization and data loading from the `pokemon.json` source via scripts in `backend/scripts/`.
-* Frontend (`frontend/`): Vue 3 + Vite application. Routing, components, and a simple API client in `src/api/`.
+* Backend (`backend/`): FastAPI with three routers: `summary`, `pokemon`, and `details`. SQLite database, initialization and data loading from the `pokemon.json` source via scripts in `backend/scripts/`. Deployed on Azure with CORS configured for the frontend.
+* Frontend (`frontend/`): Vue 3 + Vite application. Routing, components, and a simple API client in `src/api/`. Deployed on Azure Static Web Apps.
 * Data: `pokemon.json` file and local `pokemon.db` database (created automatically/by scripts).
 
 ## Installation
@@ -36,6 +42,18 @@ npm install
 ```
 
 ## Usage
+
+### Live Deployment
+
+#### Azure
+
+![azure-resource](img\azure.png)
+
+#### Website
+
+![azure-resource](img\website.png)
+
+### Local Development
 
 Run backend (default on `http://127.0.0.1:8000`):
 
